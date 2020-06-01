@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script crossorigin="anonymous" integrity="sha384-AQhQSZGQWTMJhb/TdS7NWpCmOM/8lIEsaevSU5oZtt8pQKoa+uJL4A2WnQ0O5Zj2" src="https://lib.baomitu.com/jquery/3.5.0/jquery.js"></script>
+</head>
+<body>
+    
+    <script>
+        let page = 1;
+        let rows = 4;
+        let section = 1;
+        let valid = 1;
+        let limit = 1;
+        $.ajax({
+            url: "https://www.chinacarbon-al.com:90/news/getLimitNews",
+            type: "post",
+            data: {
+                page,
+                rows,
+                section,
+                valid,
+                limit,
+            },
+            success: (data) => {
+                console.log(data)
+            }
+        })
+        $.ajax({
+            url: "http://localhost:3000/proxy",
+            type: "post",
+            data: {
+                url: "http://jsonplaceholder.typicode.com/users"
+            },
+            success: (data) => {
+                console.log(data)
+            }
+        })
+
+
+        $.ajax({
+            url: "http://localhost:3000/toutiao",
+            type: "get",
+            data: {
+                _signature: "WKZlMgAgEBDj171vlfH2ZVinJCAAAZzVUVCtlLdyiq3Q3fsSE2fZ6g8MxTDzde7uasbbhxnrUmt1V2E4XzeZjFgG7so2b7H0XKcEmdA2LJfeoLXsVxcpD0d-LQp7jt0Hxhs"
+            },
+            success: (data) => {
+                console.log(data)
+            }
+        })
+
+    </script>
+</body>
+</html>
